@@ -26,6 +26,7 @@ Route::get('/index', function () { return view('index'); });
 // User ログイン後
 Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/input', 'User\GeoSearchController@input');
 });
 
 // Admin 認証不要
