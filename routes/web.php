@@ -27,6 +27,9 @@ Route::get('/index', function () { return view('index'); });
 Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/input', 'User\GeoSearchController@input');
+    Route::get('/result', function () { return view('user.result'); });
+    // Route::post('/result', 'User\GeoSearchController@search'); // Google map search
+    Route::post('/result', 'User\SendController@sendnotify');
 });
 
 // Admin 認証不要

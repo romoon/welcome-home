@@ -1,0 +1,12 @@
+// カスタムカラーの追加
+$rmngreen:  #009185;
+
+$theme-colors: (
+    "rmngreen": $rmngreen,
+    );
+
+$btn-colors: (
+    "rmngreen": $rmngreen,
+    );
+
+@import '~bootstrap/scss/bootstrap';

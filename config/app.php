@@ -123,6 +123,10 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'geo_key' => env('GMAP_API_KEY'),
+
+    'line_token' => env('LINE_TOKEN'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
