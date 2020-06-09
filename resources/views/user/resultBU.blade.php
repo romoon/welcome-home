@@ -61,11 +61,11 @@ function chase2(position2) {
     search_area = 0.1;
     check_lati_1 = address_lati - search_area;
     check_lati_2 = address_lati + search_area;
-    check_long_1 = address_long + search_area;
+    check_long_1 = address_long - search_area;
     check_long_2 = address_long + search_area;
 
-    if (position2.coords.latitude >= check_lati_2 && position2.coords.latitude <= check_lati_1) {
-        if (position2.coords.longtude >= check_long_2 && position2.coords.longtude <= check_long_1) {
+    if (position2.coords.latitude >= check_lati_1 && position2.coords.latitude <= check_lati_2) {
+        if (position2.coords.longtude >= check_long_1 && position2.coords.longtude <= check_long_2) {
             function sendmessage(){
                 var smessage = "メッセージ送信！";
                 var token = ["4ptoQpmb3ff5xK0lY7U9YASchL1VdZXBaRIqdHQ5Xya"];
@@ -79,6 +79,25 @@ function chase2(position2) {
 
                 navigator.geolocation.clearWatch(watch_id2);
             }
+        }
+    }
+}
+
+function chase2(position2) {
+    var address_lati = 35.85;
+    address_long = 139.67;
+    search_area = 0.1;
+    check_lati_1 = address_lati - search_area;
+    check_lati_2 = address_lati + search_area;
+    check_long_1 = address_long - search_area;
+    check_long_2 = address_long + search_area;
+
+    if (locale.coords.latitude >= check_lati_1 && locale.coords.latitude <= check_lati_2) {
+        if (locale.coords.longtude >= check_long_1 && locale.coords.longtude <= check_long_2) {
+            var btn = document.getElementById('sendbtn');
+            document.myform.submit();
+
+            navigator.geolocation.clearWatch(watch_id);
         }
     }
 }

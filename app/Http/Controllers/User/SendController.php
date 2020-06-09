@@ -17,7 +17,7 @@ class SendController extends Controller
         // dd($url);
         // $token = $request->token;
         $token = config('app.line_token');
-        $message = $request->message;
+        $message = $request->smessage;
         $client = new Client();
 
         $client->post($url, [

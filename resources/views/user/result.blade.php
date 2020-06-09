@@ -11,19 +11,18 @@
             <button onclick="clear()">Clear Locate</button></br></br>
             <pre id="position_view"></pre>
         </div>
-
         <div class="col-md-10 mt-4">
             <h1>メッセージの新規作成</h1>
-            <form action="{{ action('User\SendController@sendnotify') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ action('User\SendController@sendnotify') }}" method="post" id="myform" enctype="multipart/form-data">
                 <div class="form-group row">
                     <p>URL: <input type="text" name="notifyurl" style="background-color:#ccc" value="https://notify-api.line.me/api/notify" readonly></p>
                 </div>
                 <div class="form-group row">
-                    <p>message: <input type="text" name="message" size="30" value="メッセージ送信"></p></br>
+                    <p>message: <input type="text" name="smessage" size="30" value="メッセージテスト"></p></br>
                 </div>
                 <div class="form-group row">
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-rmngreen" value="送信">
+                    <input id="" type="submit" class="btn btn-rmngreen" value="送信">
                 </div>
             </form>
         </div>
@@ -31,8 +30,6 @@
     </div>
 </div>
 @endsection
-
-
 
 <script type="text/javascript">
 var watch_id;
@@ -54,5 +51,22 @@ function locate2(position) {
     geo_text += "取得時刻:" + date.toLocaleString() + "\n";
 
     document.getElementById('position_view').innerHTML = geo_text;
+
+    var address_lati = 35.85,
+    address_long = 139.67,
+    search_area = 0.1;
+
+    var check_lati_1 = address_lati - search_area;
+    var check_lati_2 = address_lati + search_area;
+    var check_long_1 = address_long - search_area;
+    var check_long_2 = address_long + search_area;
+
+    if (check_lati_1 <= position.coords.latitude && position.coords.latitude <= check_lati_2) {
+        if (check_long_1 <= position.coords.longitude && position.coords.longitude <= check_long_2) {
+            document.forms["myform"].submit()
+            navigator.geolocation.clearWatch(watch_id);
+            console.log('追跡を終了しました！');
+        }
+    }
 }
 </script>
