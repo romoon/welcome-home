@@ -12,10 +12,7 @@ class SendController extends Controller
 
     public function sendnotify(Request $request)
     {
-        $url = $request->notifyurl;
-        // $url = 'https://notify-api.line.me/api/notify';
-        // dd($url);
-        // $token = $request->token;
+        $url = 'https://notify-api.line.me/api/notify';
         $token = config('app.line_token');
         $message = $request->smessage;
         $client = new Client();
