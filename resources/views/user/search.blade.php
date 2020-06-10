@@ -5,39 +5,43 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10 mt-4">
+        <div class="col-md-10 mt-5">
             <h2>位置情報の取得開始／停止</h2>
             <input type="button" class="btn btn-rmngreen" value="開始" onclick="locate()">
             <input type="button" class="btn btn-danger" value="終了" onclick="clear()">
             <pre id="position_view"></pre>
         </div>
-        <div class="col-md-10 mt-4">
-            <h2>取得する位置情報の条件設定</h2>
-            <form id="setting" class="" action="" method="post">
-                <div class="form-group row mt-4">
-                    <label class="col-md-2">緯度</label>
-                    <div class="col-md-10">
-                        <input type="text" id="address_lati" value="35.85">
-                    </div>
-                    <label class="col-md-2">経度</label>
-                    <div class="col-md-10">
-                        <input type="text" id="address_long" value="139.67">
-                    </div>
-                    <label class="col-md-2">開始時刻</label>
-                    <div class="col-md-10">
-                        <input type="text" id="check_hour_1" value="16">
-                    </div>
-                    <label class="col-md-2">終了時間</label>
-                    <div class="col-md-10">
-                        <input type="text" id="check_hour_2" value="21">
-                    </div>
-                </div>
-            </form>
+        <div class="col-md-10 mt-5">
+            <iframe id="mapiframe" src="{{ $iframeurl }}" width="80%" height="360" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
-        <div class="col-md-10 mt-4">
-            <h2>LINE notify 送信メッセージの設定</h2>
+
+        <div class="col-md-10 mt-5">
             <form action="{{ action('User\SendController@sendnotify') }}" method="post" id="myform" enctype="multipart/form-data">
-              <div class="form-group row mt-4">
+              <div class="form-group row">
+                  <h2>取得する位置情報の条件設定</h2>
+              </div>
+              <div class="form-group row mt-3">
+                  <label class="col-md-2">緯度</label>
+                  <div class="col-md-10">
+                      <input type="text" id="address_lati" name="lati" value="35.85">
+                  </div>
+                  <label class="col-md-2">経度</label>
+                  <div class="col-md-10">
+                      <input type="text" id="address_long" name="long" value="139.67">
+                  </div>
+                  <label class="col-md-2" name="startat">開始時刻</label>
+                  <div class="col-md-10">
+                      <input type="text" id="check_hour_1" value="16">
+                  </div>
+                  <label class="col-md-2" name="stopat">終了時間</label>
+                  <div class="col-md-10">
+                      <input type="text" id="check_hour_2" value="21">
+                  </div>
+              </div>
+              <div class="form-group row mt-5">
+                  <h2>LINE notify 送信メッセージの設定</h2>
+              </div>
+              <div class="form-group row mt-3">
                   <label class="col-md-2">メッセージ</label>
                   <div class="col-md-10">
                     <input type="text" name="smessage" size="30" value="最寄り駅に着きました。">
@@ -91,14 +95,12 @@ function locate2(position) {
     var check_long_1 = address_long - search_area;
     var check_long_2 = parseFloat(address_long) + parseFloat(search_area);
 
-    console.log(check_lati_1);
-    console.log(check_lati_2);
-    console.log(check_long_1);
-    console.log(check_long_2);
     console.log(check_lati_1 <= position.coords.latitude);
     console.log(position.coords.latitude <= check_lati_2);
     console.log(check_long_1 <= position.coords.longitude);
     console.log(position.coords.longitude <= check_long_2);
+
+    document.getElementById("mapiframe").contentWindow.location.replace('https://maps.google.com/maps?output=embed&q='+ address_lati + ',' + address_long + '&t=m&hl=ja&z=15');
 
     if (check_lati_1 <= position.coords.latitude && position.coords.latitude <= check_lati_2) {
         if (check_long_1 <= position.coords.longitude && position.coords.longitude <= check_long_2) {

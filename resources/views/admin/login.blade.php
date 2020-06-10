@@ -53,10 +53,10 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
+                                <a href="{{ route('login') }}" role="button" class="btn btn-outline-primary">User Login</a>
                                 <button type="submit" class="btn btn-danger">
                                     {{ __('Admin Login') }}
                                 </button>
-                                <a href="{{ route('login') }}" role="button" class="btn btn-outline-primary">User Login</a>
                             </div>
                         </div>
                     </form>

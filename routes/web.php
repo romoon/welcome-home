@@ -11,25 +11,16 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
 
 // User 認証不要
 Route::get('/', function () { return redirect('/home'); });
-Route::get('/index', function () { return view('index'); });
 
 // User ログイン後
 Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/input', 'User\GeoSearchController@input');
-    Route::get('/result', function () { return view('user.result'); });
-    // Route::post('/result', 'User\GeoSearchController@search'); // Google map search
-    Route::post('/result', 'User\SendController@sendnotify');
+    Route::get('/search', 'User\SendController@getsearch');
+    Route::post('/search', 'User\SendController@sendnotify');
 });
 
 // Admin 認証不要
