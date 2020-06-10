@@ -15,7 +15,7 @@
                     @endif
 
                     You are logged in!<br/>
-                    <a href="{{ asset('/index') }}" role="button" class="btn btn-success">Front</a>
+                    <a href="{{ action('User\SendController@getsearch') }}" role="button" class="btn btn-rmngreen">Setting</a>
                 </div>
             </div>
         </div>

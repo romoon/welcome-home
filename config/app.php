@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Getting Home App'),
 
     /*
     |--------------------------------------------------------------------------
@@ -122,6 +122,10 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
+
+    'geo_key' => env('GMAP_API_KEY'),
+
+    'line_token' => env('LINE_TOKEN'),
 
     /*
     |--------------------------------------------------------------------------
