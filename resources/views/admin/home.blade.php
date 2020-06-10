@@ -15,7 +15,7 @@
                     @endif
 
                     You are logged in!<br/>
-                    <a href="{{ asset('/index') }}" role="button" class="btn btn-success">Front</a>
+                    <a href="{{ asset('/admin/index') }}" role="button" class="btn btn-success">Front</a>
                 </div>
             </div>
         </div>
