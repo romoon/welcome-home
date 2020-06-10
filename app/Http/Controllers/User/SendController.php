@@ -13,7 +13,8 @@ class SendController extends Controller
     public function sendnotify(Request $request)
     {
         $url = 'https://notify-api.line.me/api/notify';
-        $token = config('app.line_token');
+        // $token = config('app.line_token');
+        $token = \Auth::user()->linetoken;
         $message = $request->smessage;
         $client = new Client();
 
@@ -26,6 +27,11 @@ class SendController extends Controller
                 'message' => "$message",
             ]
         ]);
+
+        $lati = $request->lati;
+        $long = $request->long;
+
+        $iframeurl = 'https://maps.google.com/maps?output=embed&q=' . $lati . ',' . $long . '&t=m&hl=ja&z=15';
 
         return view('user.search' , [ 'iframeurl' => $iframeurl]);
     }

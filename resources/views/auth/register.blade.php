@@ -54,6 +54,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="linetoken" class="col-md-4 col-form-label text-md-right">{{ __('LINE notify Token') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="linetoken" type="text" class="form-control @error('linetoken') is-invalid @enderror" name="linetoken" value="{{ old('linetoken') }}" required autofocus>
+
+                                @error('linetoken')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
