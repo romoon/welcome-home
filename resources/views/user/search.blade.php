@@ -111,7 +111,6 @@ function locate2(position) {
 
     if (check_lati_1 <= position.coords.latitude && position.coords.latitude <= check_lati_2) {
         if (check_long_1 <= position.coords.longitude && position.coords.longitude <= check_long_2) {
-            console.log(check_hour_1);
             var now_hour = new Date().getHours();
 
             if (check_hour_1 <= now_hour && now_hour <= check_hour_2) {
