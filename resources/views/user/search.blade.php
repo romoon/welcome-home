@@ -5,6 +5,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1>位置情報の設定</h1>
+        </div>
         <div class="col-md-10 mt-5">
             <h2>位置情報の取得開始／停止</h2>
             <input type="button" class="btn btn-rmngreen" value="開始" onclick="locate()">
@@ -48,12 +51,16 @@
                 </div>
               </div>
               <div class="form-group row">
+                  <div class="col-md-2">
                   {{ csrf_field() }}
                   <input id="" type="submit" class="btn btn-outline-rmngreen" value="メッセージの手動送信">
+                </div>
               </div>
             </form>
         </div>
-
+        <div class="col-md-10 mt-4">
+              <a href="{{ asset('/profile/edit') }}" role="button" class="btn btn-warning">ユーザー情報の設定</a>
+        </div>
     </div>
 </div>
 @endsection

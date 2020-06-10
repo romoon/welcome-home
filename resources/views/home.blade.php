@@ -15,7 +15,8 @@
                     @endif
 
                     You are logged in!<br/>
-                    <a href="{{ action('User\SendController@getsearch') }}" role="button" class="btn btn-rmngreen">Setting</a>
+                    <a href="{{ action('User\SendController@getsearch') }}" role="button" class="btn btn-rmngreen">位置情報の設定</a>
+                    <a href="{{ asset('/profile/edit') }}" role="button" class="btn btn-outline-warning">ユーザー情報の設定</a>
                 </div>
             </div>
         </div>
