@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // ユーザー情報の編集時に追記
+    public static $rules = array(
+        'email' => 'required',
+        'password' => 'required',
+    );
 }

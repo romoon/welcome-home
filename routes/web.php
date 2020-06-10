@@ -21,6 +21,8 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/search', 'User\SendController@getsearch');
     Route::post('/search', 'User\SendController@sendnotify');
+    Route::get('/profile/edit', 'User\ProfileController@edit');
+    Route::post('/profile/edit', 'User\ProfileController@update');
 });
 
 // Admin 認証不要
