@@ -37,7 +37,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('/logout', 'Admin\LoginController@logout')->name('admin.logout');
     Route::post('/logout', 'Admin\LoginController@logout')->name('admin.logout');
     Route::get('/home', 'Admin\HomeController@index')->name('admin.home');
+    Route::post('/home', 'Admin\HomeController@index')->name('admin.home');
     Route::get('/index', 'Admin\AdminHomeController@index');
     Route::get('/delete', 'Admin\AdminHomeController@delete');
-    // Route::post('/home', 'Admin\HomeController@index')->name('admin.home');
 });
