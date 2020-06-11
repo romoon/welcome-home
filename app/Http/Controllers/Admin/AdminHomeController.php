@@ -30,7 +30,6 @@ class AdminHomeController extends Controller
     public function delete(Request $request)
     {
       $user = User::find($request->id);
-      // 削除する
       $user->delete();
 
       return redirect('admin/index');
