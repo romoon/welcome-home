@@ -38,7 +38,8 @@ class SendController extends Controller
 
     public function getsearch()
     {
-      $iframeurl = 'https://maps.google.com/maps?output=embed&q=35.6812362,139.7671248&t=m&hl=ja&z=15';
+      $iframeurl = 'https://maps.google.com/maps?output=embed&q=東京駅';
+      // https://maps.google.com/maps?output=embed&q=35.6812362,139.7671248&t=m&hl=ja&z=15
 
       return view('user.search' , [ 'iframeurl' => $iframeurl]);
     }
