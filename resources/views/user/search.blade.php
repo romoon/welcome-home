@@ -122,6 +122,7 @@ function locate2(position) {
 
     console.log(address_lati);
     console.log(address_long);
+    console.log(chk_dist);
     console.log(distance);
     // console.log(check_lati_1 <= position.coords.latitude);
     // console.log(position.coords.latitude <= check_lati_2);
