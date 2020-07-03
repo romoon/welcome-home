@@ -44,7 +44,7 @@
                   </div>
                   <label class="col-md-2" name="chkdist">判定距離</label>
                   <div class="col-md-10">
-                      <input type="text" id="check_distance" value="134">
+                      <input type="text" id="check_distance" value="0.1">
                   </div>
               </div>
               <div class="form-group row mt-5">
